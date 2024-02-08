@@ -1,13 +1,9 @@
 # Documentation for List
 class List
-  attr_accessor :head,
-                :next,
-                :data
+  attr_accessor :head
 
   def initialize
     @head = nil
-    @next = nil
-    @data = nil
   end
 
   def append(node)
@@ -74,5 +70,21 @@ class List
       end
     end
     true
+  end
+
+  def pop
+    prev_node = nil
+    next_node = @head
+    until next_node.next.nil?
+      prev_node = next_node
+      next_node = next_node.next
+    end
+    @head.next = nil if prev_node == @head
+    prev_node.next = nil
+  end
+
+  def push_to_beginning(node)
+    node.next = @head
+    @head = node
   end
 end

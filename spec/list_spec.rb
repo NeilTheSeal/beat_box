@@ -123,4 +123,44 @@ RSpec.describe List do # rubocop:disable Metrics/BlockLength
     list.insert_before(new_head, @node.data)
     expect(list.head).to eq(new_head)
   end
+
+  it "can pop an element from the end of the list" do
+    list = @list
+    second_node = Node.new({
+      data: {
+        name: "John",
+        age: 63
+      }
+    })
+    third_node = Node.new({
+      data: {
+        name: "Billie",
+        age: 21
+      }
+    })
+    list.append(@node)
+    list.append(second_node)
+    list.pop
+    expect(list.head).to eq(@node)
+    list.append(second_node)
+    list.append(third_node)
+    list.pop
+    expect(list.head.next.next).to eq(nil)
+  end
+
+  it "can push an element to the beginning" do
+    list = @list
+    list.append(@node)
+    first_node = Node.new({
+      data: {
+        name: "John",
+        age: 63
+      }
+    })
+    list.push_to_beginning(first_node)
+    expect(list.head).to eq(first_node)
+  end
+
+  it "can remove the first occurance by data content" do
+  end
 end
