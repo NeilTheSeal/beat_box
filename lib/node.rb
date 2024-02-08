@@ -1,8 +1,7 @@
 # Documentation for Node
 class Node
   attr_accessor :data,
-                :next,
-                :previous
+                :next
 
   def initialize(args)
     @data = {}
@@ -10,6 +9,5 @@ class Node
       @data[key] = args[:data][key]
     end
     @next = args[:next] || nil
-    @previous = args[:previous] || nil
   end
 end

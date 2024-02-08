@@ -8,6 +8,6 @@ AllCops:
 Style/StringLiterals:
   EnforcedStyle: 'double_quotes'
 Metrics/MethodLength:
-  Max: 7
+  Max: 10
 Layout/FirstHashElementIndentation:
   EnforcedStyle: 'consistent'

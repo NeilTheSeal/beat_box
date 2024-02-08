@@ -25,19 +25,17 @@ RSpec.describe Node do
 
   it "initializes with default of nil value for previous and next" do
     expect(@node.next).to eq(nil)
-    expect(@node.previous).to eq(nil)
   end
 
-  it "initializes with previous value of a node when previous is specified" do
+  it "initializes with next value of a node when next is specified" do
     new_node = Node.new({
-      previous: @node,
+      next: @node,
       data: {
         name: "John",
         age: 63
       }
     })
-    expect(new_node.previous).to eq(@node)
+    expect(new_node.next).to eq(@node)
   end
 end
 # rubocop:enable Metrics/BlockLength
-#
